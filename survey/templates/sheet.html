@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block main %}
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Email</th>
+            <th scope="col">Location</th>
+            <th scope="col">Political ID</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for p in participants %}
+        <tr>
+            <td>{{ p['fname'] }}</td>
+            <td>{{ p['lname'] }}</td>
+            <td>{{ p['email'] }}</td>
+            <td>{{ p['city'] }}, {{ p['state'] }}</td>
+            <td>{{ p['lean'] }} {{ p['party'] }}</td></td>
+
+
+
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

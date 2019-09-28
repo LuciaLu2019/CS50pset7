@@ -1,0 +1,21 @@
+body
+{
+    background-color: #fffff3;
+}
+.selection-box
+{
+    border: navy 1px solid;
+    padding: 20px;
+    background-color: #eeeef0;
+}
+
+.inputTitle
+{
+    font-size: 1.5em;
+}
+th
+{
+    cursor:pointer;
+}
+
+

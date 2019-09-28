@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+    <div class="col">
+        <form action="/compare" enctype="multipart/form-data" method="post">
+            <div class="d-flex justify-content-center">
+                <h2>Select two files to compare</h2>
+            </div>
+            <div class="d-flex justify-content-center">
+                <div class="row">
+                    <p>
+                        File 1: <input name="file1" type="file">
+                    </p>
+                </div>
+                <div class="row">
+                    <p class="file">
+                        File 2: <input name="file2" type="file">
+                    </p>
+                </div>
+            </div>
+            <h4>Which algorithm would you like to use to test similarity?</h4>
+            <div class="row" id="alg">
+                <div class="col-4">
+                    Lines <input onclick="disable()" name="algorithm" value="lines" type="radio" checked>
+                </div>
+                <div class="col-4">
+                    Sentences <input onclick="disable()" name="algorithm" value="sentences" type="radio">
+                </div>
+                <div class="col-4">
+
+                    Substrings <input id="subs" name="algorithm" value="substrings" type="radio" onclick="enable()">
+                </div>
+            </div>
+
+            <div class = "row">
+                <div class="col-4"></div>
+                <div class="col-4"></div>
+                <div class="col-4" id="length">
+                    <input id="n" name="length" placeholder="Length" type="number" disabled>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4"></div>
+                <div class="col-4">
+                    <button type="submit">Compare</button>
+                </div>
+                <div class="col-4"></div>
+            </div>
+        </form>
+    </div>
+    <script>
+        function enable() {
+            document.getElementById('n').removeAttribute('disabled')
+            document.getElementById('n').focus()
+        }
+        function disable() {
+            document.getElementById('n').setAttribute('disabled', 'disabled')
+        }
+
+        if ($('subs').prop('checked')) {
+            enable()
+        }
+
+
+    </script>
+
+{% endblock %}
